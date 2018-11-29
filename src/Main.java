@@ -4,8 +4,10 @@ public class Main {
 
 
         Engine engine = new Engine();
-        engine.checkIfRomanNumber("XXL");
-        engine.converter("LXX");
+//        engine.converter("LXX"); //70
+//        engine.converter("MMD"); //2500
+//        engine.converter("DCC"); //700
+        engine.converter("MCMLIV"); // 1954
 
 
     }

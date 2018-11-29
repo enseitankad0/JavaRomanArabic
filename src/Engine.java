@@ -8,10 +8,11 @@ public class Engine {
 
     Map<String, Integer> dictionary = new HashMap<String, Integer>() {
         {
+            put("I", 1);
+            put("V", 5);
             put("X", 10);
             put("L", 50);
             put("C", 100);
-            put("D", 500);
             put("D", 500);
             put("M", 1000);
         }
@@ -45,17 +46,72 @@ public class Engine {
 
         }
 
-        System.out.println("RESULT is" + result);
+//        System.out.println("RESULT is" + result);
         return true;
 
     }
 
-    public void converter(String tempRomanNumber) {
-        if(checkIfRomanNumber(tempRomanNumber)){
-            System.out.println("this is a roman number");
+    public boolean converter(String tempRomanNumber) {
+        if (checkIfRomanNumber(tempRomanNumber)) {
+//            System.out.println("this is a roman number");
+
+            int result = 0;
+
+            for (int i = 0; i < tempRomanNumber.length()-1; i++) {
+//                System.out.println(tempRomanNumber.length());
+
+                if(i==tempRomanNumber.length()){
+
+                    break;
+
+                }
+
+                String currentSign = String.valueOf(tempRomanNumber.charAt(i));
+                String nextSign = String.valueOf(tempRomanNumber.charAt(i+1));
+
+
+                int valueOfSign = dictionary.get(currentSign);
+                int valueOfNextSign = dictionary.get(nextSign);
+                int tempvalue;
+
+//                if(i==0){
+//                    result = result + valueOfSign;
+//                    continue;
+//
+//                }
+
+
+                if(valueOfNextSign > valueOfSign){
+
+                    tempvalue = valueOfNextSign - valueOfSign;
+                    result = result + tempvalue;
+                    i++;
+
+                } else {
+
+//                    tempvalue = valueOfNextSign + valueOfSign;
+                    result = result + valueOfSign;
+//                    i++;
+                }
+
+
+
+
+
+
+
+
+//                result = result + valueOfSign;
+            }
+
+            System.out.println("VALUE OF " + tempRomanNumber + " IS: " + result);
+
+            return true;
+        } else {
+            return false;
         }
 
-    }
 
+    }
 
 }
