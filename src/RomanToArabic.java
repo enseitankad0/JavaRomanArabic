@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Engine {
+public class RomanToArabic {
 
 
     // https://www.imperiumromanum.edu.pl/kultura/cyfry-liczby-rzymskie/
@@ -58,6 +58,8 @@ public class Engine {
 
     }
 
+
+    // changes on the begining
     public int converter(String tempRomanNumber) {
         if (checkIfRomanNumber(tempRomanNumber)) {
 

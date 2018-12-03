@@ -4,7 +4,7 @@ public class Main {
 
         // ROMAN to ARAB
 
-//        Engine engine = new Engine();
+        RomanToArabic engine = new RomanToArabic();
 //        engine.converter("LXX"); //70
 //        engine.converter("XLLX"); //70
 //        engine.converter("MMD"); //2500
@@ -20,18 +20,14 @@ public class Main {
 
         // ARAB to ROMAN
 //
-        Converter conv = new Converter();
-//        conv.countNumberComponents(4005);
-//        conv.countNumberComponents(12);
-//
-//        conv.countNumberComponents(9_995);
-//        conv.countNumberComponents(100_000);
-//
-        conv.convertToRoman(70);
-        conv.convertToRoman(2500);
-        conv.convertToRoman(1914);
-        conv.convertToRoman(900);
+        ArabicToRoman conv = new ArabicToRoman();
+        System.out.println(conv.convertToRoman(442));
+        System.out.println(engine.converter("VXI"));
 
+
+
+//
+//conv.assignOrderOfMagnitude(100,500,1000,900);
 
 }
 }

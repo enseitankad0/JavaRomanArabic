@@ -1,12 +1,18 @@
-import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Random;
+import java.util.stream.IntStream;
+
 import static org.junit.Assert.assertEquals;
 
 public class MyTest {
 
+
+
+
     @Test
     public void convertRomanToArabicShouldReturnNumber(){
-        Engine tester = new Engine();
+        RomanToArabic tester = new RomanToArabic();
 
         assertEquals(70,tester.converter("LXX"));
         assertEquals(-1,tester.converter("XLLX"));
@@ -26,7 +32,35 @@ public class MyTest {
         assertEquals(-1,tester.converter("VIX"));
         assertEquals(-1,tester.converter("XLLX"));
 
+    }
 
+    @Test
+    public void convertArabicToRomanShouldReturnString(){
+
+        ArabicToRoman tester2 = new ArabicToRoman();
+
+        assertEquals("LXX",tester2.convertToRoman(70));
+        assertEquals("MCMXIV",tester2.convertToRoman(1914));
+        assertEquals("DCCXXXVII",tester2.convertToRoman(737));
+        assertEquals("MCMXX",tester2.convertToRoman(1920));
+        assertEquals("MCXX",tester2.convertToRoman(1120));
+        assertEquals("LXXV",tester2.convertToRoman(75));
+        assertEquals("MMXXIX",tester2.convertToRoman(2029));
+
+
+    }
+
+    @Test
+    public void selfTesting(){
+
+        ArabicToRoman arabicToRoman = new ArabicToRoman();
+        RomanToArabic romanToArabic = new RomanToArabic();
+
+        int[]  randomIntsArray = IntStream.generate(() -> new Random().nextInt(5000)).limit(1000).toArray();
+        for(int i  : randomIntsArray){
+            assertEquals(i,romanToArabic.converter(arabicToRoman.convertToRoman(i)));
+            System.out.println(i);
+        }
 
 
 
