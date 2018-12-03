@@ -15,103 +15,101 @@ public class Engine {
             put("C", 100);
             put("D", 500);
             put("M", 1000);
+            put(" ", 0);
         }
     };
 
 
-    String romanNumber;
-    String arabicNumber;
-
-//    char[] romanSigns ={'x','l','c','d'};
-//    int[] romanSignsEquivalent={10,50,100,500};
-
-
     public boolean checkIfRomanNumber(String tempRomanNumber) {
 
-        int currentMaximum = dictionary.get(String.valueOf(tempRomanNumber.charAt(0)));
-        System.out.println(currentMaximum);
-        int result = 0;
+        int currentMaximum =0;
 
-        for (int i = 0; i < tempRomanNumber.length(); i++) {
+        for(int i = 0; i <=tempRomanNumber.length()-1; i++){
 
-            String currentSign = String.valueOf(tempRomanNumber.charAt(i));
-//            currentMaximum = tempMaximum;
-            int tempMaximum = dictionary.get(currentSign);
+            if (
+                    (dictionary.get(String.valueOf(tempRomanNumber.charAt(i)))) != null) {
+                currentMaximum = dictionary.get(String.valueOf(tempRomanNumber.charAt(0)));
+            } else {
 
-            if (tempMaximum > currentMaximum) {
-                currentMaximum = tempMaximum;
-                System.out.println("this is not a proper roman number");
                 return false;
             }
 
         }
 
-//        System.out.println("RESULT is" + result);
+
+        for (int i = 0; i < tempRomanNumber.length(); i++) {
+
+            String currentSign = String.valueOf(tempRomanNumber.charAt(i));
+
+            int tempMaximum = dictionary.get(currentSign);
+
+            if (tempMaximum > currentMaximum) {
+                currentMaximum = tempMaximum;
+
+                System.out.println(tempRomanNumber + ": " + "This is not a correct roman Number. Greater values should not follow lower values.");
+
+                return false;
+            }
+
+        }
+
+
         return true;
 
     }
 
-    public boolean converter(String tempRomanNumber) {
+    public int converter(String tempRomanNumber) {
         if (checkIfRomanNumber(tempRomanNumber)) {
-//            System.out.println("this is a roman number");
+
+            tempRomanNumber = tempRomanNumber + " ";
+
 
             int result = 0;
 
-            for (int i = 0; i < tempRomanNumber.length()-1; i++) {
-//                System.out.println(tempRomanNumber.length());
-
-                if(i==tempRomanNumber.length()){
-
-                    break;
-
-                }
+            for (int i = 0; i < tempRomanNumber.length() - 1; i++) {
 
                 String currentSign = String.valueOf(tempRomanNumber.charAt(i));
-                String nextSign = String.valueOf(tempRomanNumber.charAt(i+1));
-
+                String nextSign = String.valueOf(tempRomanNumber.charAt(i + 1));
 
                 int valueOfSign = dictionary.get(currentSign);
                 int valueOfNextSign = dictionary.get(nextSign);
                 int tempvalue;
 
-//                if(i==0){
-//                    result = result + valueOfSign;
-//                    continue;
-//
-//                }
-
-
-                if(valueOfNextSign > valueOfSign){
-
+                if (valueOfNextSign > valueOfSign) {
                     tempvalue = valueOfNextSign - valueOfSign;
                     result = result + tempvalue;
                     i++;
-
                 } else {
-
-//                    tempvalue = valueOfNextSign + valueOfSign;
                     result = result + valueOfSign;
-//                    i++;
+
                 }
 
-
-
-
-
-
-
-
-//                result = result + valueOfSign;
             }
 
             System.out.println("VALUE OF " + tempRomanNumber + " IS: " + result);
 
-            return true;
+            return result;
+
         } else {
-            return false;
+            return -1;
         }
 
 
     }
+
+//    public boolean findMatchWitchKeySet(String romanNumber, Map<String, Integer> dictionary){
+//
+//        for(int i =0; i<romanNumber.length();i++){
+//
+//            for(int k = 0; k < dictionary.keySet())
+//
+//
+//
+//
+//        }
+//
+//
+//
+//    }
 
 }
