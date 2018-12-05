@@ -45,7 +45,6 @@ public class ArabicToRoman {
 
         StringBuilder sb = new StringBuilder();
 
-
         for (int i = 0; i < thousands; i++) {
             sb.append(dictionary.get(1000));
         }
@@ -54,6 +53,8 @@ public class ArabicToRoman {
         sb.append(assignOrderOfMagnitude(100, 500, 1000, hundereds));
         sb.append(assignOrderOfMagnitude(10, 50, 100, tens));
         sb.append(assignOrderOfMagnitude(1, 5, 10, units));
+
+        System.out.println("VALUE OF " + tempArabicNumber + " IS: " + sb.toString());
 
         return sb.toString();
 

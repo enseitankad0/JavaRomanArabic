@@ -31,6 +31,8 @@ public class MyTest {
         assertEquals(-1,tester.converter("asdfg"));
         assertEquals(-1,tester.converter("VIX"));
         assertEquals(-1,tester.converter("XLLX"));
+        assertEquals(-1,tester.converter("   asdadsd"));
+        assertEquals(-1,tester.converter("x    LLL VMdd"));
 
     }
 
@@ -56,7 +58,7 @@ public class MyTest {
         ArabicToRoman arabicToRoman = new ArabicToRoman();
         RomanToArabic romanToArabic = new RomanToArabic();
 
-        int[]  randomIntsArray = IntStream.generate(() -> new Random().nextInt(5000)).limit(1000).toArray();
+        int[]  randomIntsArray = IntStream.generate(() -> new Random().nextInt(4999)).limit(2000).toArray();
         for(int i  : randomIntsArray){
             assertEquals(i,romanToArabic.converter(arabicToRoman.convertToRoman(i)));
             System.out.println(i);

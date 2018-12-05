@@ -4,30 +4,20 @@ public class Main {
 
         // ROMAN to ARAB
 
-        RomanToArabic engine = new RomanToArabic();
-//        engine.converter("LXX"); //70
-//        engine.converter("XLLX"); //70
-//        engine.converter("MMD"); //2500
-//        engine.converter("DCCX"); //710
-//        engine.converter("MCMLIV"); // 1954
-//        engine.converter("CXVI"); // 116
-//        engine.converter("MCXX"); // 1120
-//        engine.converter("MCMXIV"); // 1914
-//        engine.converter("MMMMC"); // 4100
-//        engine.converter("MMVIII"); // 900
-//        engine.converter("X"); // 10
-//        engine.converter("DCCXXXVII"); // 737
+        RomanToArabic roman = new RomanToArabic();
+        roman.converter("MCMLIV"); // 1954
+        roman.converter("CXVI"); // 116
+        roman.converter("MCXX"); // 1120
+        roman.converter("MCMXIV"); // 1914
+        roman.converter("MMMMC"); // 4100
+        roman.converter("MMVIII"); // 900
+        roman.converter("DCCXXXVII"); // 737
 
         // ARAB to ROMAN
-//
-        ArabicToRoman conv = new ArabicToRoman();
-        System.out.println(conv.convertToRoman(441));
 
+        ArabicToRoman arab = new ArabicToRoman();
+        System.out.println(arab.convertToRoman(1954));
+        System.out.println(arab.convertToRoman(1914));
 
-
-
-//
-//conv.assignOrderOfMagnitude(100,500,1000,900);
-
-}
+    }
 }
